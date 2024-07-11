@@ -1,2 +1,11 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<p>You have updated user successfully.</p>
+
+
+
+
+
+<h1>User info</h1>
+<p><%= image_tag @user.get_profile_image(100,100) %></p>
+<p><%= @user.name %></p>
+<p><%= @user.introduction %></p>
+<p><%= link_to "プロフィール編集", edit_user_path(current_user.id) %></p>
