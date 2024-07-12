@@ -1,1 +1,33 @@
 @use '~bootstrap/scss/bootstrap';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.top-text span{
+  font-weight: bold;
+}
+
+.link{
+  text-decoration: none;
+  
+  color: white ;
+}
+
+.link:hover{
+  text-decoration: none;
+  color: white;
+}
+
+a{
+  padding: 3px;
+  color: white;
+}
+
+a:hover{
+  text-decoration: none;
+  color: #808080;
+}
