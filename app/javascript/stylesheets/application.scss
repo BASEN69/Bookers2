@@ -11,9 +11,9 @@
   font-weight: bold;
 }
 
-.link{
+.link, .link-item{
   text-decoration: none;
-  
+
   color: white ;
 }
 
@@ -22,12 +22,8 @@
   color: white;
 }
 
-a{
-  padding: 3px;
-  color: white;
-}
-
-a:hover{
+.link-item:hover{
   text-decoration: none;
   color: #808080;
 }
+

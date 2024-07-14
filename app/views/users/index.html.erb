@@ -1,2 +1,21 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>User info</h2>
+      <p><%= image_tag @book.user.get_profile_image(100,100) %></p>
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <th scope="col">name</th>
+            <th scope="col"><%= @book.user.name %></th>
+          </tr>
+          <tr>
+            <th scope="col">introduction</th>
+            <th scope="col"><%= @book.user.introduction %></th>
+          </tr>
+        </tbody>
+      </table>
+      <a class="btn btn-outline-secondary btn-block" href="user_path(current_user.id)"><i class="fa-solid fa-user-gear"></i></a>
+    </div>
+  </div>
+</div>
