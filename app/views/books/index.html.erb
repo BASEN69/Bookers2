@@ -1,34 +1,59 @@
-
 <p></p>
-
 <div class="container">
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
       <p><%= image_tag @book.user.get_profile_image(100,100) %></p>
-      <p>name:<%= @book.user.name %></p>
-      <p>introduction:<%= @book.user.introduction %></p>
-      <p><%= link_to 'ページ', user_path(current_user.id) %></p>
-
-      <h2>New book</h2>
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <th scope="col">name</th>
+            <th scope="col"><%= @book.user.name %></th>
+          </tr>
+          <tr>
+            <th scope="col">introduction</th>
+            <th scope="col"><%= @book.user.introduction %></th>
+          </tr>
+        </tbody>
+      </table>
+      <a class="btn btn-outline-secondary btn-block" href="/users/<%= current_user.id %>/edit"><i class="fa-solid fa-user-gear"></i></a>
+      <br>
+      <h1>New book</h1>
       <%= form_with model: @book do |f| %>
-        <p>title</p>
-        <%= f.text_field :title %>
-        <p>opinion</p>
-        <%= f.text_area :body %>
-        <%= f.submit 'Create Book' %>
+        <div class="form-group">
+          <%= f.label :title %><br>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <p>Opinion</p>
+          <%= f.text_area :body, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit 'Create Book', class: "btn btn-success" %>
+        </div>
       <% end %>
     </div>
-
-
-
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
-      <% @books.each do |book| %>
-        <p><%= book.title %></p>
-        <p><%= book.body %></p>
-        <p><%= @book.user.name %></p>
-      <% end %>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Opinion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @books.each do |book| %>
+          <tr>
+            <th scope="col"><%= image_tag @book.user.get_profile_image(100,100) %></th>
+            <th scope="col"><%= link_to book.title, book_path(book.id) %></th>
+            <th scope="col"><%= book.body %></th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
+
   </div>
 </div>

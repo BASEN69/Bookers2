@@ -1,3 +1,4 @@
+<p></p>
 <div class="container">
   <div class="row">
     <div class="col-md-3">
@@ -15,7 +16,44 @@
           </tr>
         </tbody>
       </table>
-      <a class="btn btn-outline-secondary btn-block" href="user_path(current_user.id)"><i class="fa-solid fa-user-gear"></i></a>
+      <a class="btn btn-outline-secondary btn-block" href="/users/<%= current_user.id %>/edit"><i class="fa-solid fa-user-gear"></i></a>
+      <br>
+      <h1>New book</h1>
+      <%= form_with model: @book do |f| %>
+        <div class="form-group">
+          <%= f.label :title %><br>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <p>Opinion</p>
+          <%= f.text_area :body, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit 'Create Book', class: "btn btn-success" %>
+        </div>
+      <% end %>
     </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">image</th>
+            <th scope="col">name</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <th scope="col"><%= image_tag user.get_profile_image(100,100) %></th>
+            <th scope="col"><%= user.name %></th>
+            <th scope="col"><%= link_to "show", user_path(user.id) %></th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </div>
