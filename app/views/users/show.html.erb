@@ -16,7 +16,7 @@
           </tr>
         </tbody>
       </table>
-      <a class="btn btn-outline-secondary btn-block" href="/users/<%= current_user.id %>/edit"><i class="fa-solid fa-user-gear"></i></a>
+      <a class="btn btn-outline-secondary btn-block" href="/users/<%= @user.id %>/edit"><i class="fa-solid fa-user-gear"></i></a>
       <br>
       <h1>New book</h1>
       <%= form_with model: @book do |f| %>
@@ -50,7 +50,7 @@
                 <a href="/users/<%= @user.id %>/">
                   <%= image_tag @user.get_profile_image(100,100) %>
                 </a>
-                
+
               </th>
               <th scope="col"><%= link_to book.title, book_path(book.id) %></th>
               <th scope="col"><%= book.body %></th>

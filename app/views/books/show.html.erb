@@ -5,11 +5,11 @@
         <tbody>
           <tr>
             <th scope="col">
-              <a href="users/#{<% @book.user.id %>}/">
-                <%= image_tag @book.user.get_profile_image(100,100) %>
-              </a>
+              <%= link_to @book.user do %>
+                <%= image_tag @book.user.get_profile_image(100,100) %><br><%= @book.user.name %>
+              <% end %>
             </th>
-            <th scope="col"><%= @book.title %></th>
+            <th scope="col"><%= link_to  @book.title , @book %></th>
             <th scope="col"><%= @book.body %></th>
             <% if @book.user == current_user %>
               <th scope="col"><%= link_to "Edit", edit_book_path, class: "btn btn-success" %></a></th>
