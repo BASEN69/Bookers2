@@ -3,16 +3,16 @@
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
-      <p><%= image_tag @user.get_profile_image(100,100) %></p>
+      <p><%= image_tag @book.user.get_profile_image(100,100) %></p>
       <table class="table table-hover">
         <tbody>
           <tr>
             <th scope="col">name</th>
-            <th scope="col"><%= @user.name %></th>
+            <th scope="col"><%= @book.user.name %></th>
           </tr>
           <tr>
             <th scope="col">introduction</th>
-            <th scope="col"><%= @user.introduction %></th>
+            <th scope="col"><%= @book.user.introduction %></th>
           </tr>
         </tbody>
       </table>
@@ -33,34 +33,4 @@
         </div>
       <% end %>
     </div>
-    <div class="col-md-8 offset-md-1">
-      <h2>Books</h2>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">Title</th>
-            <th scope="col">Opinion</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @user.book.each do |book| %>
-            <tr>
-              <th scope="col">
-                <a href="/users/<%= @user.id %>/">
-                  <%= image_tag @user.get_profile_image(100,100) %>
-                </a>
-                
-              </th>
-              <th scope="col"><%= link_to book.title, book_path(book.id) %></th>
-              <th scope="col"><%= book.body %></th>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-
-  </div>
-</div>
-
-
+    
