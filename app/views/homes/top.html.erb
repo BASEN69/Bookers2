@@ -1,4 +1,6 @@
-<p>Signed out successfully.</p>
+<% flash.each do |message_type, message| %>
+<div class="flash-message <%= message_type %>"><%= message %></div>
+<% end %>
 <main>
   <div class="container">
     <div class="row">

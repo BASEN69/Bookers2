@@ -1,3 +1,6 @@
+<% flash.each do |message_type, message| %>
+<div class="flash-message <%= message_type %>"><%= message %></div>
+<% end %>
 <%= render 'list', books: @books %>
     <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
@@ -13,7 +16,7 @@
             <th scope="col"><%= @book.body %></th>
             <% if @book.user == current_user %>
               <th scope="col"><%= link_to "Edit", edit_book_path, class: "btn btn-success" %></a></th>
-              <th scope="col"><%=  %></th>
+              <th scope="col"><%= link_to "Destroy", book_path(@book), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に消しますか？"  %></th>
             <% end %>
           </tr>
         </tbody>
