@@ -26,7 +26,9 @@
           </tr>
         </tbody>
       </table>
-      <a class="btn btn-outline-secondary btn-block" href="/users/<%= @book.user.id %>/edit"><i class="fa-solid fa-user-gear"></i></a>
+      <%= link_to edit_user_path(@book.user), class: "btn btn-outline-secondary btn-block" do %>
+        <i class="fa-solid fa-user-gear"></i>
+      <% end %>
       <br>
       <h1>New book</h1>
       <%= form_with model: Book.new do |f| %>
@@ -43,4 +45,3 @@
         </div>
       <% end %>
     </div>
-    

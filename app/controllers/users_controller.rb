@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @book = Book.new
     @book.user_id = current_user.id
     @users = User.all
-    
+
   end
 
   def update
