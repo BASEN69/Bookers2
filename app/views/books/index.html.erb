@@ -17,9 +17,9 @@
           <% Book.all.each do |book| %>
           <tr>
             <th scope="col">
-              <%= link_to book.user do %>
+              <a href="<%= user_path(book.user.id) %>">
                 <%= image_tag book.user.get_profile_image(100,100) %>
-              <% end %>
+              </a>
             </th>
             <th scope="col"><%= link_to book.title, book_path(book.id) %></th>
             <th scope="col"><%= book.body %></th>
