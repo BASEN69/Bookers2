@@ -1,4 +1,4 @@
-class BooksController < ApplicationController
+class Public::BooksController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
   def new
     @book = Book.new
